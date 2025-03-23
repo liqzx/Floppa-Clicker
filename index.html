@@ -147,7 +147,6 @@
         .floppa-container {
             flex: 1;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
@@ -163,32 +162,6 @@
             filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
             animation: pulse 4s infinite ease-in-out;
             will-change: transform;
-        }
-
-        .floppa-costume {
-            position: absolute;
-            width: 230px;
-            height: 230px;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .costume-btn {
-            background-color: #af8e7b;
-            border: none;
-            padding: 6px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            color: white;
-            font-family: 'Press Start 2P', cursive;
-            font-size: 0.6rem;
-            margin-top: 10px;
-            transition: transform 0.2s ease, background-color 0.3s ease;
-        }
-
-        .costume-btn:hover {
-            transform: scale(1.05);
-            background-color: #c9a28b;
         }
 
         @keyframes pulse {
@@ -288,34 +261,6 @@
             font-size: 1.2rem;
         }
 
-        .upgrade-tabs {
-            display: flex;
-            margin-bottom: 15px;
-            gap: 5px;
-        }
-
-        .upgrade-tab {
-            background-color: #c9a28b;
-            padding: 8px 12px;
-            border-radius: 5px 5px 0 0;
-            cursor: pointer;
-            font-size: 0.7rem;
-            transition: background-color 0.3s ease;
-        }
-
-        .upgrade-tab.active {
-            background-color: #e6c797;
-            color: #3c2a21;
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
         .upgrade-item {
             background-color: #e6c797;
             margin-bottom: 10px;
@@ -399,91 +344,6 @@
             50% {
                 background-color: #4caf50;
             }
-        }
-
-        .special-upgrade-item {
-            background: linear-gradient(135deg, #e6c797, #f0d6aa);
-            border: 2px solid #ffa500;
-            box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
-        }
-
-        .special-upgrade-item .upgrade-name {
-            color: #8b5d2e;
-        }
-
-        .special-upgrade-item .upgrade-cost {
-            color: #d67d00;
-        }
-
-        .achievements {
-            width: 90%;
-            max-width: 800px;
-            background-color: rgba(0, 0, 0, 0.3);
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 20px;
-        }
-
-        .achievements-title {
-            color: #ffa500;
-            text-align: center;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .achievement-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 10px;
-        }
-
-        .achievement {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 5px;
-            padding: 10px;
-            text-align: center;
-            font-size: 0.7rem;
-            transition: transform 0.2s ease, background-color 0.3s ease;
-        }
-
-        .achievement.locked {
-            filter: grayscale(100%);
-            opacity: 0.6;
-        }
-
-        .achievement.unlocked {
-            background-color: rgba(255, 165, 0, 0.2);
-            animation: achievementUnlock 1s ease-out;
-        }
-
-        @keyframes achievementUnlock {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 rgba(255, 165, 0, 0);
-            }
-            50% {
-                transform: scale(1.1);
-                box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 10px rgba(255, 165, 0, 0.3);
-            }
-        }
-
-        .achievement-icon {
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-
-        .achievement-name {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .achievement-desc {
-            font-size: 0.6rem;
-            color: #e6d2b5;
         }
 
         .leaderboard {
@@ -570,48 +430,9 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background-color: #af8e7b;
-            border-radius: 5px;
-            margin-top: 5px;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: #ffa500;
-            width: 0%;
-            transition: width 0.3s ease;
-        }
-
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(60, 42, 33, 0.9);
-            color: #ffa500;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 0.8rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transform: translateX(120%);
-            transition: transform 0.3s ease;
-            z-index: 100;
-        }
-
-        .notification.show {
-            transform: translateX(0);
-        }
-
         @media (max-width: 768px) {
             .game-content {
                 flex-direction: column;
-            }
-            
-            .upgrade-tabs {
-                flex-wrap: wrap;
             }
         }
     </style>
@@ -623,9 +444,6 @@
         <div class="tip-text"><i>💡</i> Floppa naps are the most powerful upgrade</div>
         <div class="tip-text"><i>💡</i> Auto-clickers work even when you're away</div>
         <div class="tip-text"><i>💡</i> Save up for big upgrades</div>
-        <div class="tip-text"><i>💡</i> Special upgrades appear randomly - grab them quickly!</div>
-        <div class="tip-text"><i>💡</i> Unlock achievements for bonus points</div>
-        <div class="tip-text"><i>💡</i> Check the Special tab for limited-time offers</div>
     </div>
 
     <h1 class="game-title">Floppa Clicker</h1>
@@ -633,149 +451,48 @@
     <div class="controls">
         <button id="sound-btn" class="control-btn">liqxz</button>
         <button id="reset-btn" class="control-btn">Reset Game</button>
-        <button id="save-btn" class="control-btn">Save Game</button>
-        <button id="load-btn" class="control-btn">Load Game</button>
     </div>
 
     <div class="game-container">
         <div class="stats">
             <div id="points" class="points">477 Floppa Points</div>
             <div class="click-stats">Click Power: <span id="click-power">1</span> | Auto-Clicks: <span id="auto-clicks">0</span>/second</div>
-            <div class="click-stats">Level: <span id="player-level">1</span> | XP: <span id="player-xp">0</span>/<span id="level-cap">100</span></div>
-            <div class="progress-bar">
-                <div id="xp-progress" class="progress" style="width: 0%"></div>
-            </div>
         </div>
 
         <div class="game-content">
             <div class="floppa-container">
                 <div class="click-ripple" id="click-ripple"></div>
                 <img id="floppa" class="floppa-image" src="/api/placeholder/200/200" alt="Floppa">
-                <img id="floppa-costume" class="floppa-costume" style="display: none;" src="/api/placeholder/230/230" alt="Floppa Costume">
-                <button id="costume-btn" class="costume-btn">Toggle Bowtie</button>
             </div>
 
             <div class="upgrades">
                 <h2 class="upgrades-title">Upgrades</h2>
-                
-                <div class="upgrade-tabs">
-                    <div class="upgrade-tab active" data-tab="basic">Basic</div>
-                    <div class="upgrade-tab" data-tab="advanced">Advanced</div>
-                    <div class="upgrade-tab" data-tab="special">Special</div>
+                <div class="upgrade-item" id="treats">
+                    <div class="upgrade-info">
+                        <div class="upgrade-name">Floppa Treats</div>
+                        <div class="upgrade-desc">Each treat gives +1 click power</div>
+                        <div class="upgrade-owned">Owned: <span id="treats-owned">0</span></div>
+                    </div>
+                    <div class="upgrade-cost" id="treats-cost">10 points</div>
                 </div>
-                
-                <div id="basic-tab" class="tab-content active">
-                    <div class="upgrade-item" id="treats">
-                        <div class="upgrade-info">
-                            <div class="upgrade-name">Floppa Treats</div>
-                            <div class="upgrade-desc">Each treat gives +1 click power</div>
-                            <div class="upgrade-owned">Owned: <span id="treats-owned">0</span></div>
-                        </div>
-                        <div class="upgrade-cost" id="treats-cost">10 points</div>
-                    </div>
 
-                    <div class="upgrade-item" id="friends">
-                        <div class="upgrade-info">
-                            <div class="upgrade-name">Floppa Friend</div>
-                            <div class="upgrade-desc">Each friend clicks once per second</div>
-                            <div class="upgrade-owned">Owned: <span id="friends-owned">0</span></div>
-                        </div>
-                        <div class="upgrade-cost" id="friends-cost">50 points</div>
+                <div class="upgrade-item" id="friends">
+                    <div class="upgrade-info">
+                        <div class="upgrade-name">Floppa Friend</div>
+                        <div class="upgrade-desc">Each friend clicks once per second</div>
+                        <div class="upgrade-owned">Owned: <span id="friends-owned">0</span></div>
                     </div>
-
-                    <div class="upgrade-item" id="naps">
-                        <div class="upgrade-info">
-                            <div class="upgrade-name">Floppa Nap</div>
-                            <div class="upgrade-desc">Each nap increases click power by 5</div>
-                            <div class="upgrade-owned">Owned: <span id="naps-owned">0</span></div>
-                        </div>
-                        <div class="upgrade-cost" id="naps-cost">200 points</div>
-                    </div>
+                    <div class="upgrade-cost" id="friends-cost">50 points</div>
                 </div>
-                
-                <div id="advanced-tab" class="tab-content">
-                    <div class="upgrade-item" id="toys">
-                        <div class="upgrade-info">
-                            <div class="upgrade-name">Floppa Toys</div>
-                            <div class="upgrade-desc">Each toy increases auto-clicks by 5</div>
-                            <div class="upgrade-owned">Owned: <span id="toys-owned">0</span></div>
-                        </div>
-                        <div class="upgrade-cost" id="toys-cost">500 points</div>
-                    </div>
 
-                    <div class="upgrade-item" id="beds">
-                        <div class="upgrade-info">
-                            <div class="upgrade-name">Luxury Bed</div>
-                            <div class="upgrade-desc">Each bed doubles your click power</div>
-                            <div class="upgrade-owned">Owned: <span id="beds-owned">0</span></div>
-                        </div>
-                        <div class="upgrade-cost" id="beds-cost">1000 points</div>
+                <div class="upgrade-item" id="naps">
+                    <div class="upgrade-info">
+                        <div class="upgrade-name">Floppa Nap</div>
+                        <div class="upgrade-desc">Each nap increases click power by 5</div>
+                        <div class="upgrade-owned">Owned: <span id="naps-owned">0</span></div>
                     </div>
-
-                    <div class="upgrade-item" id="mansion">
-                        <div class="upgrade-info">
-                            <div class="upgrade-name">Floppa Mansion</div>
-                            <div class="upgrade-desc">Increases all production by 50%</div>
-                            <div class="upgrade-owned">Owned: <span id="mansion-owned">0</span></div>
-                        </div>
-                        <div class="upgrade-cost" id="mansion-cost">5000 points</div>
-                    </div>
+                    <div class="upgrade-cost" id="naps-cost">200 points</div>
                 </div>
-                
-                <div id="special-tab" class="tab-content">
-                    <div class="upgrade-item special-upgrade-item" id="golden">
-                        <div class="upgrade-info">
-                            <div class="upgrade-name">Golden Floppa</div>
-                            <div class="upgrade-desc">Triple your click power for 60 seconds</div>
-                            <div class="upgrade-owned">Cooldown: <span id="golden-cooldown">Ready</span></div>
-                        </div>
-                        <div class="upgrade-cost" id="golden-cost">1500 points</div>
-                    </div>
-
-                    <div class="upgrade-item special-upgrade-item" id="party">
-                        <div class="upgrade-info">
-                            <div class="upgrade-name">Floppa Party</div>
-                            <div class="upgrade-desc">Double auto-clicks for 120 seconds</div>
-                            <div class="upgrade-owned">Cooldown: <span id="party-cooldown">Ready</span></div>
-                        </div>
-                        <div class="upgrade-cost" id="party-cost">2000 points</div>
-                    </div>
-
-                    <div class="upgrade-item special-upgrade-item" id="mythic">
-                        <div class="upgrade-info">
-                            <div class="upgrade-name">Mythic Floppa</div>
-                            <div class="upgrade-desc">Permanent 20% bonus to all production</div>
-                            <div class="upgrade-owned">Owned: <span id="mythic-owned">0</span>/3</div>
-                        </div>
-                        <div class="upgrade-cost" id="mythic-cost">10000 points</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="achievements">
-        <h2 class="achievements-title">Achievements</h2>
-        <div class="achievement-grid">
-            <div class="achievement locked" id="ach-clicks">
-                <div class="achievement-icon">🖱️</div>
-                <div class="achievement-name">Click Master</div>
-                <div class="achievement-desc">Click Floppa 100 times</div>
-            </div>
-            <div class="achievement locked" id="ach-points">
-                <div class="achievement-icon">💰</div>
-                <div class="achievement-name">Point Hoarder</div>
-                <div class="achievement-desc">Reach 1,000 Floppa Points</div>
-            </div>
-            <div class="achievement locked" id="ach-treats">
-                <div class="achievement-icon">🍖</div>
-                <div class="achievement-name">Treat Supplier</div>
-                <div class="achievement-desc">Buy 10 Floppa Treats</div>
-            </div>
-            <div class="achievement locked" id="ach-friends">
-                <div class="achievement-icon">👥</div>
-                <div class="achievement-name">Friendly Floppa</div>
-                <div class="achievement-desc">Buy 5 Floppa Friends</div>
             </div>
         </div>
     </div>
@@ -796,7 +513,6 @@
                     <th>Score</th>
                     <th>Click Power</th>
                     <th>Auto Clicks</th>
-                    <th>Level</th>
                 </tr>
             </thead>
             <tbody>
@@ -806,23 +522,6 @@
                     <td id="table-score">477</td>
                     <td id="table-click-power">1</td>
                     <td id="table-auto-clicks">0/s</td>
-                    <td id="table-level">1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>FloppaMaster</td>
-                    <td>325</td>
-                    <td>5</td>
-                    <td>2/s</td>
-                    <td>3</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>CaramelFriend</td>
-                    <td>218</td>
-                    <td>3</td>
-                    <td>1/s</td>
-                    <td>2</td>
                 </tr>
             </tbody>
         </table>
@@ -835,8 +534,6 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
         </iframe>
     </div>
-    
-    <div class="notification" id="notification"></div>
 
     <script>
         // Game state
@@ -844,10 +541,264 @@
             points: 477,
             clickPower: 1,
             autoClicks: 0,
-            level: 1,
-            xp: 0,
-            xpNeeded: 100,
-            totalClicks: 0,
             upgrades: {
                 treats: { owned: 0, cost: 10, powerIncrease: 1 },
-                friends: {
+                friends: { owned: 0, cost: 50, clicksPerSecond: 1 },
+                naps: { owned: 0, cost: 200, powerIncrease: 5 }
+            },
+            playerName: "Player",
+            soundEnabled: true
+        };
+
+        // Elements
+        const pointsDisplay = document.getElementById('points');
+        const clickPowerDisplay = document.getElementById('click-power');
+        const autoClicksDisplay = document.getElementById('auto-clicks');
+        const floppaImg = document.getElementById('floppa');
+        const soundBtn = document.getElementById('sound-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const clickRipple = document.getElementById('click-ripple');
+        const floppaContainer = document.querySelector('.floppa-container');
+        
+        // Upgrade elements
+        const treatsElem = document.getElementById('treats');
+        const treatsOwnedDisplay = document.getElementById('treats-owned');
+        const treatsCostDisplay = document.getElementById('treats-cost');
+        
+        const friendsElem = document.getElementById('friends');
+        const friendsOwnedDisplay = document.getElementById('friends-owned');
+        const friendsCostDisplay = document.getElementById('friends-cost');
+        
+        const napsElem = document.getElementById('naps');
+        const napsOwnedDisplay = document.getElementById('naps-owned');
+        const napsCostDisplay = document.getElementById('naps-cost');
+        
+        // Table elements
+        const tableNameDisplay = document.getElementById('table-name');
+        const tableScoreDisplay = document.getElementById('table-score');
+        const tableClickPowerDisplay = document.getElementById('table-click-power');
+        const tableAutoClicksDisplay = document.getElementById('table-auto-clicks');
+        const playerNameDisplay = document.getElementById('player-name');
+        const editBtn = document.querySelector('.edit-btn');
+
+        // Tip rotation
+        const tips = document.querySelectorAll('.tip-text');
+        let currentTipIndex = 0;
+
+        function rotateTips() {
+            // Hide current tip
+            tips[currentTipIndex].classList.remove('active');
+            
+            // Update index
+            currentTipIndex = (currentTipIndex + 1) % tips.length;
+            
+            // Show new tip
+            tips[currentTipIndex].classList.add('active');
+        }
+
+        // Rotate tips every 5 seconds
+        setInterval(rotateTips, 5000);
+
+        // Update display
+        function updateDisplay() {
+            pointsDisplay.textContent = `${gameState.points} Floppa Points`;
+            clickPowerDisplay.textContent = gameState.clickPower;
+            autoClicksDisplay.textContent = gameState.autoClicks;
+            
+            treatsOwnedDisplay.textContent = gameState.upgrades.treats.owned;
+            treatsCostDisplay.textContent = `${gameState.upgrades.treats.cost} points`;
+            
+            friendsOwnedDisplay.textContent = gameState.upgrades.friends.owned;
+            friendsCostDisplay.textContent = `${gameState.upgrades.friends.cost} points`;
+            
+            napsOwnedDisplay.textContent = gameState.upgrades.naps.owned;
+            napsCostDisplay.textContent = `${gameState.upgrades.naps.cost} points`;
+            
+            tableNameDisplay.textContent = `${gameState.playerName} (You)`;
+            tableScoreDisplay.textContent = gameState.points;
+            tableClickPowerDisplay.textContent = gameState.clickPower;
+            tableAutoClicksDisplay.textContent = `${gameState.autoClicks}/s`;
+            playerNameDisplay.textContent = gameState.playerName;
+            
+            // Update upgrade items appearance based on affordability
+            updateUpgradeAffordability();
+        }
+        
+        function updateUpgradeAffordability() {
+            // Treats
+            if (gameState.points >= gameState.upgrades.treats.cost) {
+                treatsElem.classList.remove('disabled');
+            } else {
+                treatsElem.classList.add('disabled');
+            }
+            
+            // Friends
+            if (gameState.points >= gameState.upgrades.friends.cost) {
+                friendsElem.classList.remove('disabled');
+            } else {
+                friendsElem.classList.add('disabled');
+            }
+            
+            // Naps
+            if (gameState.points >= gameState.upgrades.naps.cost) {
+                napsElem.classList.remove('disabled');
+            } else {
+                napsElem.classList.add('disabled');
+            }
+        }
+
+        // Create floating points effect
+        function createFloatingPoints(x, y, amount) {
+            const floatText = document.createElement('div');
+            floatText.className = 'point-float';
+            floatText.textContent = `+${amount}`;
+            floatText.style.left = `${x}px`;
+            floatText.style.top = `${y}px`;
+            document.body.appendChild(floatText);
+            
+            // Remove after animation completes
+            setTimeout(() => {
+                floatText.remove();
+            }, 1000);
+        }
+
+        // Click Floppa
+        floppaImg.addEventListener('click', (e) => {
+            gameState.points += gameState.clickPower;
+            
+            // Stop any ongoing animations on Floppa
+            floppaImg.classList.remove('floppa-click-effect');
+            // Trigger reflow
+            void floppaImg.offsetWidth;
+            
+            // Apply new click animation
+            floppaImg.classList.add('floppa-click-effect');
+            
+            // Points display animation
+            pointsDisplay.classList.remove('points-increase');
+            void pointsDisplay.offsetWidth;
+            pointsDisplay.classList.add('points-increase');
+            
+            // Create ripple effect
+            clickRipple.classList.remove('ripple-active');
+            void clickRipple.offsetWidth;
+            clickRipple.classList.add('ripple-active');
+            
+            // Create floating points
+            const rect = floppaContainer.getBoundingClientRect();
+            createFloatingPoints(
+                e.clientX - rect.left, 
+                e.clientY - rect.top, 
+                gameState.clickPower
+            );
+            
+            updateDisplay();
+        });
+
+        // Buy upgrades with animations
+        treatsElem.addEventListener('click', () => {
+            if (gameState.points >= gameState.upgrades.treats.cost) {
+                gameState.points -= gameState.upgrades.treats.cost;
+                gameState.upgrades.treats.owned += 1;
+                gameState.clickPower += gameState.upgrades.treats.powerIncrease;
+                gameState.upgrades.treats.cost = Math.floor(gameState.upgrades.treats.cost * 1.15);
+                
+                // Add purchase animation
+                treatsElem.classList.remove('upgrade-purchased');
+                void treatsElem.offsetWidth;
+                treatsElem.classList.add('upgrade-purchased');
+                
+                updateDisplay();
+            }
+        });
+
+        friendsElem.addEventListener('click', () => {
+            if (gameState.points >= gameState.upgrades.friends.cost) {
+                gameState.points -= gameState.upgrades.friends.cost;
+                gameState.upgrades.friends.owned += 1;
+                gameState.autoClicks += gameState.upgrades.friends.clicksPerSecond;
+                gameState.upgrades.friends.cost = Math.floor(gameState.upgrades.friends.cost * 1.15);
+                
+                // Add purchase animation
+                friendsElem.classList.remove('upgrade-purchased');
+                void friendsElem.offsetWidth;
+                friendsElem.classList.add('upgrade-purchased');
+                
+                updateDisplay();
+            }
+        });
+
+        napsElem.addEventListener('click', () => {
+            if (gameState.points >= gameState.upgrades.naps.cost) {
+                gameState.points -= gameState.upgrades.naps.cost;
+                gameState.upgrades.naps.owned += 1;
+                gameState.clickPower += gameState.upgrades.naps.powerIncrease;
+                gameState.upgrades.naps.cost = Math.floor(gameState.upgrades.naps.cost * 1.15);
+                
+                // Add purchase animation
+                napsElem.classList.remove('upgrade-purchased');
+                void napsElem.offsetWidth;
+                napsElem.classList.add('upgrade-purchased');
+                
+                updateDisplay();
+            }
+        });
+
+        // Toggle sound
+        soundBtn.addEventListener('click', () => {
+            gameState.soundEnabled = !gameState.soundEnabled;
+            soundBtn.textContent = gameState.soundEnabled ? '🔊' : '🔇';
+            
+            // Get iframe and toggle its volume if possible
+            const iframe = document.querySelector('.music-player iframe');
+            // Note: Due to cross-origin restrictions, we can't directly control the YouTube iframe volume
+            // This just toggles the UI button
+        });
+
+        // Reset game
+        resetBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to reset the game? All progress will be lost.')) {
+                gameState = {
+                    points: 0,
+                    clickPower: 1,
+                    autoClicks: 0,
+                    upgrades: {
+                        treats: { owned: 0, cost: 10, powerIncrease: 1 },
+                        friends: { owned: 0, cost: 50, clicksPerSecond: 1 },
+                        naps: { owned: 0, cost: 200, powerIncrease: 5 }
+                    },
+                    playerName: gameState.playerName,
+                    soundEnabled: gameState.soundEnabled
+                };
+                updateDisplay();
+            }
+        });
+
+        // Edit player name
+        editBtn.addEventListener('click', () => {
+            const newName = prompt('Enter your new player name:', gameState.playerName);
+            if (newName !== null && newName.trim() !== '') {
+                gameState.playerName = newName.trim();
+                updateDisplay();
+            }
+        });
+
+        // Auto clicker with visual feedback
+        setInterval(() => {
+            if (gameState.autoClicks > 0) {
+                gameState.points += gameState.autoClicks;
+                
+                // Show subtle points animation
+                pointsDisplay.classList.remove('points-increase');
+                void pointsDisplay.offsetWidth;
+                pointsDisplay.classList.add('points-increase');
+                
+                updateDisplay();
+            }
+        }, 1000);
+
+        // Initial display update
+        updateDisplay();
+    </script>
+</body>
+</html>
